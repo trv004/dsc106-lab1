@@ -1,0 +1,167 @@
+body {
+    /* Set line height to 1.5 times the font size
+         and use the OS’s UI font as the website font
+       */
+    font: 100%/1.5 system-ui;
+    max-width: 100ch;
+    display: block;
+    margin: 8px;
+    margin-inline: auto;
+    padding: 20px;
+  }
+
+nav ul,
+nav li {
+    display: contents;
+  }
+
+nav {
+  display: flex;
+  margin-bottom: 1.5rem;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: oklch(80% 3% 200);
+
+}
+
+nav a {
+  flex: 1;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  padding: 0.5em;
+}
+
+nav a.current {
+  border-bottom: 0.4em solid oklch(80% 3% 200);
+  padding-bottom: 0.3em;
+}
+
+:root {
+  --color-accent: oklch(0.68 0.1891 301.41 / 39.48%);
+}
+
+html {
+  accent-color: var(--color-accent);
+}
+
+nav a:hover {
+  border-bottom: 0.4em solid var(--color-accent);
+  padding-bottom: 0.3em;
+  background-color: oklch(from var(--color-accent) 95% 5% h)
+}
+
+input, textarea, button {
+  font: inherit;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+label {
+  margin-block: 0.5rem 0;
+  display: contents;
+}
+
+form {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1em;
+}
+
+label {
+  grid-column: 1 / -1;
+  margin-block: 0.5rem 0;
+}
+
+button {
+  grid-column: 1 / -1;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 1em;
+}
+
+.projects article {
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+  gap: 1em;
+}
+
+.projects h2 {
+  margin: 0;
+}
+
+h1 {
+  font-size: 300%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.cv {
+  font-family: 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  padding: 2rem;
+  background-color: #fdfdfd;
+  color: #222;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cv h1 {
+  font-size: 3rem;
+  line-height: 1.1;
+  text-wrap: balance;
+  margin-bottom: 1.5rem;
+}
+
+.cv h2, 
+.cv h3, 
+.cv h4, 
+.cv h5, 
+.cv h6 {
+    line-height: 1.1;
+    text-wrap: balance;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.cv h2 {
+  font-size: 2rem;
+  color: #062790;
+}
+
+.cv h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+  color: #444;
+}
+
+.cv time {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #666;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.cv section {
+  margin-bottom: 2.5rem;
+}
+
+.cv article {
+  margin-bottom: 1.5rem;
+}
+
+.cv ul {
+  padding-left: 1.2rem;
+}
+
+.cv ul li {
+  margin-bottom: 0.5rem;
+}
