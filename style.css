@@ -171,6 +171,10 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0.5rem;
 }
 
+body {
+  position: relative;  /* Allow absolute positioning within the body */
+}
+
 .color-scheme {
   display: block;
   margin-bottom: 1rem;
@@ -186,7 +190,7 @@ h1, h2, h3, h4, h5, h6 {
 label.color-scheme {
   position: absolute;
   top: 1rem;   /* Adjust this to move it vertically */
-  right: 0.5rem; /* Adjust this to move it horizontally */
+  right: 1rem; /* Increased value to move further from the edge */
   font-size: 80%; /* Smaller font size for the switcher */
   font-family: inherit; /* Ensure the font matches the rest of the page */
 }
