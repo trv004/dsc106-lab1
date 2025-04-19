@@ -10,19 +10,23 @@ body {
     padding: 20px;
   }
 
+  html {
+    color-scheme: light dark;
+  }
+
 nav ul,
 nav li {
     display: contents;
   }
 
-nav {
-  display: flex;
-  margin-bottom: 1.5rem;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-bottom-color: oklch(80% 3% 200);
-
-}
+  nav {
+    --border-color: oklch(50% 10% 200 / 40%);
+    display: flex;
+    margin-bottom: 1.5rem;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: var(--border-color);
+  }
 
 nav a {
   flex: 1;
@@ -30,10 +34,11 @@ nav a {
   color: inherit;
   text-align: center;
   padding: 0.5em;
+  border-bottom-color: var(--border-color);
 }
 
 nav a.current {
-  border-bottom: 0.4em solid oklch(80% 3% 200);
+  border-bottom: 0.4em solid var(--border-color);
   padding-bottom: 0.3em;
 }
 
@@ -164,4 +169,28 @@ h1, h2, h3, h4, h5, h6 {
 
 .cv ul li {
   margin-bottom: 0.5rem;
+}
+
+.color-scheme {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.color-scheme select {
+  margin-left: 0.5em;
+  font: inherit;
+}
+
+/* Position the theme switcher at the top-right */
+label.color-scheme {
+  position: absolute;
+  top: 1rem;   /* Adjust this to move it vertically */
+  right: 1rem; /* Adjust this to move it horizontally */
+  font-size: 80%; /* Smaller font size for the switcher */
+  font-family: inherit; /* Ensure the font matches the rest of the page */
+}
+
+select {
+  font: inherit; /* Inherit font from the parent to match the body */
 }
