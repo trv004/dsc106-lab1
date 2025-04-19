@@ -186,7 +186,7 @@ h1, h2, h3, h4, h5, h6 {
 label.color-scheme {
   position: absolute;
   top: 1rem;   /* Adjust this to move it vertically */
-  right: 1rem; /* Adjust this to move it horizontally */
+  right: 0.5rem; /* Adjust this to move it horizontally */
   font-size: 80%; /* Smaller font size for the switcher */
   font-family: inherit; /* Ensure the font matches the rest of the page */
 }
