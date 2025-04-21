@@ -11,7 +11,6 @@ let currentLink = navLinks.find(
   );
 
 if (currentLink) {
-// or if (currentLink !== undefined)
     currentLink.classList.add('current');
   }
 
@@ -38,7 +37,7 @@ for (let p of pages) {
         url = BASE_PATH + url;
     }
 
-    // Create link and add it to nav
+    // create link and add it to nav
     let a = document.createElement('a');
     a.href = url;
     a.textContent = title;
