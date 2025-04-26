@@ -1,20 +1,26 @@
 [
     {
+        "title": "Visualizing Grocery Insights",
+        "year": 2025,
+        "image": "../images/grocery_vis.png",
+        "description": "Created a clear, static visualization that highlights an insight from a dataset of grocery store food items. Had a goal of focusing on one key takeaway and explaining it effectively through design."
+    },
+    {
         "title": "Power Outage Analysis & Prediction",
         "year": 2025,
-        "image": "/images/outage_project.png",
+        "image": "../images/outage_project.png",
         "description": "Analyzed power outage durations across U.S. climate zones using a Purdue University research dataset. Built and trained prediction models using Scikit-learn and feature engineering. Created interactive visualizations to present key findings using Plotly and Matplotlib."
     },
     {
         "title": "Loan Applications",
         "year": 2025,
-        "image": "/images/loans_project.png",
+        "image": "../images/loans_project.png",
         "description": "Calculated disposable incomes using a sample dataset from a real financial platform. Refined a model to assess borrower risk based on disposable income trends."
     },
     {
         "title": "San Diego MTS Analytics and Optimization",
         "year": 2025,
-        "image": "/images/transit_project.png",
+        "image": "../images/transit_project.png",
         "description": "Analyzed San Diego MTS bus schedule datasets to map and visualize complex transit networks. Applied algorithms to calculate the shortest travel paths and optimize routes. Simulated and visualized the distribution of random passenger arrivals and calculated wait times."
     },
     {
@@ -34,12 +40,6 @@
         "year": 2022,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Developed a website addressing healthcare equity by utilizing JavaScript, HTML, and CSS."
-    },
-    {
-        "title": "Visualizing Grocery Insights",
-        "year": 2025,
-        "image": "/images/grocery_vis.png",
-        "description": "Created a clear, static visualization that highlights an insight from a dataset of grocery store food items. Had a goal of focusing on one key takeaway and explaining it effectively through design."
     },
     {
         "title": "Project Title Placeholder 1",
