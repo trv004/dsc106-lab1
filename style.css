@@ -194,3 +194,78 @@ label.color-scheme {
 select {
   font: inherit; /* Inherit font from the parent to match the body */
 }
+
+#profile-stats {
+  width: 100%;
+  max-width: 100%;
+  margin: 20px 0;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+}
+
+/* Header for the Profile Stats */
+h2 {
+  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+
+/* Profile Data Grid */
+#profile-stats dl {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+  grid-gap: 20px; /* Adds space between the rows and columns */
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* Label for Dropdown */
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Dropdown styling */
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.1em;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Grid items for profile data */
+#profile-stats dt {
+  grid-column: span 1; /* Ensures each term takes up only one column */
+  font-weight: bold;
+  margin: 0;
+}
+
+#profile-stats dd {
+  grid-column: span 1; /* Ensures each definition takes up only one column */
+  margin: 0;
+  padding: 5px;
+  background-color: #f1f1f1;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Ensure even space and alignment */
+#profile-stats dd, #profile-stats dt {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Evenly distribute items in the space */
+  padding: 5px 10px;
+  box-sizing: border-box;
+}
+
+.projects img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+}

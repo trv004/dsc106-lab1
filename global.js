@@ -62,7 +62,7 @@ if (localStorage.colorScheme) {
 }
 
 // Add an event listener to detect when the user changes the theme
-select.addEventListener('input', function(event) {
+  select.addEventListener('input', function(event) {
   // Log the change to the console (for debugging)
   console.log('color scheme changed to', event.target.value);
 
@@ -72,3 +72,59 @@ select.addEventListener('input', function(event) {
   // Save the user's preference to localStorage
   localStorage.colorScheme = event.target.value;
 });
+
+export async function fetchJSON(url) {
+  try {
+    // Fetch the JSON file from the given URL
+    const response = await fetch(url);
+
+    // Check if the response is okay
+    if (!response.ok) {
+      throw new Error(`Failed to fetch projects: ${response.statusText}`);
+    }
+
+    // Parse the JSON data
+    const data = await response.json();
+
+    // Log the parsed data
+    console.log('Projects Data:', data);
+
+    // Return the data so it can be used elsewhere
+    return data;
+
+  } catch (error) {
+    console.error('Error fetching or parsing JSON data:', error);
+  }
+}
+
+// Call the fetchJSON function
+fetchJSON('/lib/projects.json')
+  .then(data => {
+    // Handle the loaded data here if needed
+    // No need to log data again since it's already logged inside fetchJSON
+  })
+  .catch(error => {
+    console.error('Error loading projects data:', error);
+  });
+
+
+  export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+    console.log('Rendering projects with heading level:', headingLevel); // Log the heading level
+    containerElement.innerHTML = ''; // Clear the existing content in the container
+  
+    // Loop through each project and create an article element
+    projects.forEach(project => {
+      const article = document.createElement('article');
+      article.innerHTML = `
+        <${headingLevel}>${project.title} (${project.year || 'Year N/A'})</${headingLevel}>
+      <img src="${project.image}" alt="${project.title}">
+      <p>${project.description}</p>
+      `;
+      containerElement.appendChild(article);
+    });
+  }
+
+
+  export async function fetchGitHubData(username) {
+    return fetchJSON(`https://api.github.com/users/${username}`);
+  }
