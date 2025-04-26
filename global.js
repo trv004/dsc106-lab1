@@ -98,7 +98,7 @@ export async function fetchJSON(url) {
 }
 
 // Call the fetchJSON function
-fetchJSON('/lib/projects.json')
+fetchJSON('lib/projects.json')
   .then(data => {
     // Handle the loaded data here if needed
     // No need to log data again since it's already logged inside fetchJSON
