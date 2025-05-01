@@ -2,25 +2,25 @@
     {
         "title": "Visualizing Grocery Insights",
         "year": 2025,
-        "image": "https://trv004.github.io/dsc106-lab1/images/grocery_vis.png",
+        "image": "https://trv004.github.io/portfolio/images/grocery_vis.png",
         "description": "Created a clear, static visualization that highlights an insight from a dataset of grocery store food items. Had a goal of focusing on one key takeaway and explaining it effectively through design."
     },
     {
         "title": "Power Outage Analysis & Prediction",
         "year": 2025,
-        "image": "https://trv004.github.io/dsc106-lab1/images/outage_project.png",
+        "image": "https://trv004.github.io/portfolio/images/outage_project.png",
         "description": "Analyzed power outage durations across U.S. climate zones using a Purdue University research dataset. Built and trained prediction models using Scikit-learn and feature engineering. Created interactive visualizations to present key findings using Plotly and Matplotlib."
     },
     {
         "title": "Loan Applications",
         "year": 2025,
-        "image": "https://trv004.github.io/dsc106-lab1/images/loans_project.png",
+        "image": "https://trv004.github.io/portfolio/images/loans_project.png",
         "description": "Calculated disposable incomes using a sample dataset from a real financial platform. Refined a model to assess borrower risk based on disposable income trends."
     },
     {
         "title": "San Diego MTS Analytics and Optimization",
         "year": 2025,
-        "image": "https://trv004.github.io/dsc106-lab1/images/transit_project.png",
+        "image": "https://trv004.github.io/portfolio/images/transit_project.png",
         "description": "Analyzed San Diego MTS bus schedule datasets to map and visualize complex transit networks. Applied algorithms to calculate the shortest travel paths and optimize routes. Simulated and visualized the distribution of random passenger arrivals and calculated wait times."
     },
     {
