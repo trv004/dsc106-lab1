@@ -108,18 +108,40 @@ fetchJSON('lib/projects.json')
   });
 
 
-  export function renderProjects(projects, containerElement, headingLevel = 'h2') {
-    console.log('Rendering projects with heading level:', headingLevel); // Log the heading level
-    containerElement.innerHTML = ''; // Clear the existing content in the container
   
-    // Loop through each project and create an article element
+  export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+    console.log('Rendering projects with heading level:', headingLevel);
+    containerElement.innerHTML = '';
+  
     projects.forEach(project => {
       const article = document.createElement('article');
-      article.innerHTML = `
-        <${headingLevel}>${project.title} (${project.year || 'Year N/A'})</${headingLevel}>
-      <img src="${project.image}" alt="${project.title}">
-      <p>${project.description}</p>
-      `;
+  
+      // Create title
+      const heading = document.createElement(headingLevel);
+      heading.textContent = project.title;
+      article.appendChild(heading);
+  
+      // Create image
+      const img = document.createElement('img');
+      img.src = project.image;
+      img.alt = project.title;
+      article.appendChild(img);
+  
+      // Wrap description and year in a single container
+      const descWrapper = document.createElement('div');
+  
+      const description = document.createElement('p');
+      description.textContent = project.description;
+      descWrapper.appendChild(description);
+  
+      const year = document.createElement('p');
+      year.textContent = 'c. ' + project.year || 'Year N/A';
+      year.style.color = 'gray';
+      year.style.fontFamily = 'Baskerville, serif';
+      year.style.fontVariantNumeric = 'oldstyle-nums';
+      descWrapper.appendChild(year);
+  
+      article.appendChild(descWrapper);
       containerElement.appendChild(article);
     });
   }

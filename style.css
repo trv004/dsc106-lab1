@@ -269,3 +269,73 @@ select {
   max-width: 300px;
   height: auto;
 }
+
+#projects-pie-plot {
+  max-width: 20em;
+  margin-block: 2em;
+
+  overflow: visible;
+}
+
+
+/* Style for the whole legend container */
+.legend {
+  display: flex; /* Use flexbox to align items in a row */
+  flex-wrap: nowrap; /* Prevent wrapping of items onto new lines */
+  gap: 10px; /* Adds spacing between the items */
+  margin-top: 20px; /* Adds some space above the legend */
+  border: 1px solid #ddd; /* Border around the entire legend */
+  padding: 10px; /* Padding inside the legend */
+  overflow-x: auto; /* Allows horizontal scrolling if items exceed the width */
+  white-space: nowrap; /* Prevents text from wrapping within the legend */
+}
+
+/* Style for each list item in the legend */
+.legend li {
+  display: flex; /* Align items inside the li */
+  align-items: center; /* Vertically center the text and the swatch */
+  gap: 10px; /* Spacing between the swatch and text */
+  font-size: 1em; /* Adjusts the text size */
+  padding: 5px; /* Adds some space inside each li */
+}
+
+/* Style for the swatch (the color box) */
+.swatch {
+  display: inline-block; /* Make it behave like a block-level element */
+  width: 20px; /* Set width */
+  height: 20px; /* Set height */
+  background-color: var(--color); /* Background color set dynamically */
+  border-radius: 50%; /* Make it a circle */
+}
+
+.container {
+  display: flex;
+  align-items: center; /* Vertically center items */
+  gap: 20px; /* Add space between pie chart and legend */
+}
+
+.legend {
+  flex: 1; /* Make the legend take all available space */
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  gap: 10px;
+  justify-content: center; /* Center legend items */
+}
+
+&:has(path:hover) {
+  path:not(:hover) {
+    opacity: 0.5;
+  }
+}
+
+path {
+  transition: 300ms;
+}
+
+.selected {
+  --color: oklch(60% 45% 0) !important;
+
+  &:is(path) {
+    fill: var(--color);
+  }
+}
