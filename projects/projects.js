@@ -1,27 +1,32 @@
 import { fetchJSON, renderProjects } from '../global.js';
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
-//load project data
+// Load project data
 const projects = await fetchJSON('../lib/projects.json');
 const projectsContainer = document.querySelector('.projects');
 const titleElement = document.querySelector('.projects-title');
 const searchInput = document.querySelector('.searchBar');
 
-//initial render of all projects
+// Initial render of all projects
 renderProjects(projects, projectsContainer, 'h2');
 titleElement.textContent = `${projects.length} Projects`;
 
-//arc and color settings
+// Arc and color settings
 let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
 let colors = d3.scaleOrdinal(d3.schemeTableau10);
 
-//function to render pie chart
+// Globals
+let selectedIndex = -1;
+let query = '';
+let data = []; // Stores pie chart data globally
+
+// Function to render pie chart
 function renderPieChart(projectsGiven) {
   d3.select('svg').selectAll('path').remove();
   d3.select('.legend').selectAll('li').remove();
 
   const rolledData = d3.rollups(projectsGiven, v => v.length, d => d.year);
-  const data = rolledData.map(([year, count]) => ({ value: count, label: year }));
+  data = rolledData.map(([year, count]) => ({ value: count, label: year }));
 
   const sliceGenerator = d3.pie().value(d => d.value);
   const arcData = sliceGenerator(data);
@@ -33,48 +38,48 @@ function renderPieChart(projectsGiven) {
       .append('path')
       .attr('d', arc)
       .attr('fill', colors(i))
+      .attr('class', selectedIndex === i ? 'selected' : '')
       .on('click', () => {
         selectedIndex = selectedIndex === i ? -1 : i;
 
-        //update wedge styles
+        // Update path and legend styles
         svg.selectAll('path')
           .attr('class', (_, idx) => selectedIndex === idx ? 'selected' : '');
 
-        //update legend styles
         d3.select('.legend').selectAll('li')
           .attr('class', (_, idx) => selectedIndex === idx ? 'selected' : '');
 
-        //filter projects by both search and selected year
+        // Filter projects and re-render only the list (not the chart)
         const filteredProjects = projects.filter(project => {
           const matchesSearch = Object.values(project).join('\n').toLowerCase().includes(query);
           const matchesYear = selectedIndex === -1 || project.year === data[selectedIndex].label;
           return matchesSearch && matchesYear;
         });
 
-        //render filtered projects
+        projectsContainer.innerHTML = '';
+        titleElement.textContent = `${filteredProjects.length} Projects`;
         renderProjects(filteredProjects, projectsContainer, 'h2');
-        renderPieChart(filteredProjects); //rerender pie chart
       });
   });
 
+  // Render legend
   const legend = d3.select('.legend');
   data.forEach((d, idx) => {
     legend.append('li')
       .attr('style', `--color:${colors(idx)}`)
+      .attr('class', selectedIndex === idx ? 'selected' : '')
       .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
   });
 }
 
-//initial pie chart render
+// Initial pie chart render
 renderPieChart(projects);
 
-let query = ''; //store search query GLOBALLY
-
+// Search functionality
 searchInput.addEventListener('change', (event) => {
-  query = event.target.value.toLowerCase(); //update query
+  query = event.target.value.toLowerCase();
 
-  //filter projects based on BOTH search query and selected year
-  let filteredProjects = projects.filter(project => {
+  const filteredProjects = projects.filter(project => {
     const matchesSearch = Object.values(project).join('\n').toLowerCase().includes(query);
     const matchesYear = selectedIndex === -1 || project.year === data[selectedIndex].label;
     return matchesSearch && matchesYear;
@@ -83,7 +88,4 @@ searchInput.addEventListener('change', (event) => {
   titleElement.textContent = `${filteredProjects.length} Projects`;
   projectsContainer.innerHTML = '';
   renderProjects(filteredProjects, projectsContainer, 'h2');
-  renderPieChart(filteredProjects);
 });
-
-let selectedIndex = -1;
