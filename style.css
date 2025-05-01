@@ -273,53 +273,52 @@ select {
 #projects-pie-plot {
   max-width: 20em;
   margin-block: 2em;
-
   overflow: visible;
 }
 
 
 /* Style for the whole legend container */
 .legend {
-  display: flex; /* Use flexbox to align items in a row */
-  flex-wrap: nowrap; /* Prevent wrapping of items onto new lines */
-  gap: 10px; /* Adds spacing between the items */
-  margin-top: 20px; /* Adds some space above the legend */
-  border: 1px solid #ddd; /* Border around the entire legend */
-  padding: 10px; /* Padding inside the legend */
-  overflow-x: auto; /* Allows horizontal scrolling if items exceed the width */
-  white-space: nowrap; /* Prevents text from wrapping within the legend */
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
 /* Style for each list item in the legend */
 .legend li {
-  display: flex; /* Align items inside the li */
-  align-items: center; /* Vertically center the text and the swatch */
-  gap: 10px; /* Spacing between the swatch and text */
-  font-size: 1em; /* Adjusts the text size */
-  padding: 5px; /* Adds some space inside each li */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1em;
+  padding: 5px;
 }
 
 /* Style for the swatch (the color box) */
 .swatch {
-  display: inline-block; /* Make it behave like a block-level element */
-  width: 20px; /* Set width */
-  height: 20px; /* Set height */
-  background-color: var(--color); /* Background color set dynamically */
-  border-radius: 50%; /* Make it a circle */
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: var(--color);
+  border-radius: 50%;
 }
 
 .container {
   display: flex;
-  align-items: center; /* Vertically center items */
-  gap: 20px; /* Add space between pie chart and legend */
+  align-items: center;
+  gap: 20px;
 }
 
 .legend {
-  flex: 1; /* Make the legend take all available space */
+  flex: 1;
   display: flex;
-  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  flex-wrap: wrap;
   gap: 10px;
-  justify-content: center; /* Center legend items */
+  justify-content: center;
 }
 
 &:has(path:hover) {
@@ -338,4 +337,13 @@ path {
   &:is(path) {
     fill: var(--color);
   }
+}
+
+.searchBar {
+  margin-bottom: 2rem;
+}
+
+.projects,
+#projects-pie-plot {
+  margin-top: 2rem; 
 }

@@ -1,21 +1,21 @@
 import { fetchJSON, renderProjects } from '../global.js';
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
-// Load project data
+//load project data
 const projects = await fetchJSON('../lib/projects.json');
 const projectsContainer = document.querySelector('.projects');
 const titleElement = document.querySelector('.projects-title');
 const searchInput = document.querySelector('.searchBar');
 
-// Initial render of all projects
+//initial render of all projects
 renderProjects(projects, projectsContainer, 'h2');
 titleElement.textContent = `${projects.length} Projects`;
 
-// Arc and color settings
+//arc and color settings
 let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
 let colors = d3.scaleOrdinal(d3.schemeTableau10);
 
-// Function to render pie chart
+//function to render pie chart
 function renderPieChart(projectsGiven) {
   d3.select('svg').selectAll('path').remove();
   d3.select('.legend').selectAll('li').remove();
@@ -36,24 +36,24 @@ function renderPieChart(projectsGiven) {
       .on('click', () => {
         selectedIndex = selectedIndex === i ? -1 : i;
 
-        // Update wedge styles
+        //update wedge styles
         svg.selectAll('path')
           .attr('class', (_, idx) => selectedIndex === idx ? 'selected' : '');
 
-        // Update legend styles
+        //update legend styles
         d3.select('.legend').selectAll('li')
           .attr('class', (_, idx) => selectedIndex === idx ? 'selected' : '');
 
-        // Filter projects by both search and selected year
+        //filter projects by both search and selected year
         const filteredProjects = projects.filter(project => {
           const matchesSearch = Object.values(project).join('\n').toLowerCase().includes(query);
           const matchesYear = selectedIndex === -1 || project.year === data[selectedIndex].label;
           return matchesSearch && matchesYear;
         });
 
-        // Render filtered projects
+        //render filtered projects
         renderProjects(filteredProjects, projectsContainer, 'h2');
-        renderPieChart(filteredProjects); // Re-render pie chart
+        renderPieChart(filteredProjects); //rerender pie chart
       });
   });
 
@@ -65,15 +65,15 @@ function renderPieChart(projectsGiven) {
   });
 }
 
-// Initial pie chart render
+//initial pie chart render
 renderPieChart(projects);
 
-let query = ''; // Store search query globally
+let query = ''; //store search query GLOBALLY
 
 searchInput.addEventListener('change', (event) => {
-  query = event.target.value.toLowerCase(); // Update query
+  query = event.target.value.toLowerCase(); //update query
 
-  // Filter projects based on both search query and selected year
+  //filter projects based on BOTH search query and selected year
   let filteredProjects = projects.filter(project => {
     const matchesSearch = Object.values(project).join('\n').toLowerCase().includes(query);
     const matchesYear = selectedIndex === -1 || project.year === data[selectedIndex].label;
