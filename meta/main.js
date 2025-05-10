@@ -42,7 +42,7 @@ function processCommits(data) {
 
       return ret;
     });
-}
+} 
 
 
 function renderCommitInfo(data, commits) {
