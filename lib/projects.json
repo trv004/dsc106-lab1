@@ -3,7 +3,8 @@
         "title": "Wheel Watching",
         "year": 2025,
         "image": "https://trv004.github.io/portfolio/images/wheelwatching.png",
-        "description": "Created an interactive visualization using real world data by adding data-driven layers within a Mapbox canvas, adding custom SVG overlays on Mapbox maps, and adapting to the map’s panning and zooming."
+        "description": "Created an interactive visualization using real world data by adding data-driven layers within a Mapbox canvas, adding custom SVG overlays on Mapbox maps, and adapting to the map’s panning and zooming.",
+        "link": "https://trv004.github.io/wheelwatching/"
     },
     {
         "title": "Visualizing Grocery Insights",
