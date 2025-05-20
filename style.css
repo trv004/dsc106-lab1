@@ -183,7 +183,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Position the theme switcher at the top-right */
-label.color-scheme {
+label.color-scheme { 
   position: absolute;
   top: 1rem;   /* Adjust this to move it vertically */
   right: 0.5rem; /* Adjust this to move it horizontally */
